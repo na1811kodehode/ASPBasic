@@ -42,6 +42,45 @@ app.MapPost("/addperson", ([FromForm] string Name, [FromForm] int Age) =>
 
 }).DisableAntiforgery();
 
+//Find person
+app.MapPost("/findperson", ([FromForm] int Id) => 
+{
+    var existPerson = people.FirstOrDefault(person => person.Id == Id); //boolean result - basically if 'this' person ID is equal to my input ID...
+
+    //Let us check
+    if (existPerson == null)
+    {
+        return Results.NotFound(new {Message = $"Person with {Id} does not exist."});
+    }
+    //If person found then return
+    return Results.Json(new {Id = existPerson.Id, Name = existPerson.name, Age = existPerson.age});
+
+}).DisableAntiforgery();
+
+
+//Update person
+app.MapPut("/updateperson", ([FromForm] int Id, [FromForm] string updatedName, [FromForm] int updatedAge) =>
+{
+    var existPerson = people.FirstOrDefault(person => person.Id == Id);
+
+    if (existPerson == null)
+    {
+        return Results.NotFound(new {Message = $"Person with {Id} does not exist."});
+    }
+    //Step 1: Create a new person since we  use record :(
+    var updatedPerson = existPerson with {name = updatedName, age = updatedAge};
+
+    //Step 2: Get index
+    var index = people.FindIndex (p => p.Id == Id);
+
+    //And replace
+    people[index] = updatedPerson;
+
+    return Results.Ok($"Person with {Id} is updated!");
+});
+
+//Delete person
+
 app.Run();
 
 record Person(int Id, string name, int age);
