@@ -3,7 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+//We need permission, it is called AddCors
+builder.Services.AddCors(options => 
+{
+    options.AddPolicy("allowAll", policy =>
+    {
+        policy.AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin();
+
+    });
+});
+
+
 var app = builder.Build();
+app.UseCors("allowAll");
 
 //I want to create a list that contains Persons instance
 List<Person> people = new List<Person>() 
@@ -67,7 +82,7 @@ app.MapPut("/updateperson", ([FromForm] int Id, [FromForm] string updatedName, [
     {
         return Results.NotFound(new {Message = $"Person with {Id} does not exist."});
     }
-    //Step 1: Create a new person since we  use record :(
+    //Step 1: Create a new person since we use record :(
     var updatedPerson = existPerson with {name = updatedName, age = updatedAge};
 
     //Step 2: Get index
@@ -77,9 +92,22 @@ app.MapPut("/updateperson", ([FromForm] int Id, [FromForm] string updatedName, [
     people[index] = updatedPerson;
 
     return Results.Ok($"Person with {Id} is updated!");
-});
+}).DisableAntiforgery();
 
-//Delete person
+//Delete person by ID
+app.MapDelete("/deleteperson", ([FromForm] int Id) =>
+{
+    var existPerson = people.FirstOrDefault(p => p.Id == Id);
+    
+    //Check
+    if (existPerson == null)
+    {
+        return Results.NotFound(new {Message = $"Person with {Id} does not exist."});
+    }
+    people.Remove(existPerson);
+
+    return Results.Ok($"Person with {Id} is deleted.");
+}).DisableAntiforgery();
 
 app.Run();
 
