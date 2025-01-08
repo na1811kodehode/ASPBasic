@@ -123,8 +123,90 @@ function findPerson() {
 
 function updatePerson() {
     console.log("It is to update a person script");
+
+    let id = parseInt(document.querySelector("#updateId").value);
+    let name = document.querySelector("#updateName").value;
+    let age = parseInt(document.querySelector("#updateAge").value);
+
+    if (id == "") {
+        alert('"ID" cannot be empty.');
+        return;
+    }
+    else if (name == "") {
+        alert('"Name" cannot be empty.');
+        return;
+    }
+    else if (age == "") {
+        alert('"Age" cannot be empty.');
+        return;
+    }
+
+    //Test if the input works
+    console.log(id, name, age);
+
+    //We get data from virtual form
+    const formData = new FormData();
+    formData.append("Id", id);
+    formData.append("updatedName", name);
+    formData.append("updatedAge", age);
+
+    //Fetch
+    fetch("http://localhost:5035/updateperson", {
+        method: "PUT",
+        body: formData,
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch data from server")
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+
+        //Update table
+        getAllPeople();
+
+        //Reset form
+        document.querySelector("#updateId").value = "";
+        document.querySelector("#updateName").value = "";
+        document.querySelector("#updateAge").value = "";
+    })
+    .catch((error) => {
+        console.error("error", error);
+    });
 }
 
 function deletePerson() {
     console.log("It is to delete a person script");
+
+    let id = parseInt(document.querySelector("#deleteId").value);
+
+    //Test if the input works
+    console.log(id);
+
+    const formData = new FormData();
+    formData.append("Id", id);
+    var idValue = formData.get("Id");
+
+    fetch("http://localhost:5035/deleteperson", {
+        method: "DELETE",
+        body: formData,
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch data from server")
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+
+        //Update table
+        getAllPeople();
+        alert(`User with ID ${idValue} successfully deleted.`);
+    })
+    .catch((error) => {
+        console.error("error", error);
+    });
 }
