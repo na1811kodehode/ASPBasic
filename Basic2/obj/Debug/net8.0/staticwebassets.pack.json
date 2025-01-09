@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\crud.js",
+      "PackagePath": "staticwebassets\\crud.js"
+    },
+    {
+      "Id": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Basic2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Basic2.props",
+      "PackagePath": "build\\Basic2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Basic2.props",
+      "PackagePath": "buildMultiTargeting\\Basic2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Basic2.props",
+      "PackagePath": "buildTransitive\\Basic2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

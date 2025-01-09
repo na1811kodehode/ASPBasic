@@ -28,7 +28,13 @@ List<Person> people = new List<Person>()
     new Person (3, "Jane", 19)
 };
 
-app.MapGet("/", () => "Hello World!");
+app.UseStaticFiles();
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/index.html");
+    return Task.CompletedTask;
+});
+
 
 //Get all people
 app.MapGet("/people", () => 
@@ -108,6 +114,8 @@ app.MapDelete("/deleteperson", ([FromForm] int Id) =>
 
     return Results.Ok($"Person with {Id} is deleted.");
 }).DisableAntiforgery();
+
+
 
 app.Run();
 

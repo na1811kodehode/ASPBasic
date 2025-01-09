@@ -24,3 +24,4 @@ C:\Users\PodiumKurs\OneDrive\kodehode\ASP_BASIC\Basic2\obj\Debug\net8.0\refint\B
 C:\Users\PodiumKurs\OneDrive\kodehode\ASP_BASIC\Basic2\obj\Debug\net8.0\Basic2.pdb
 C:\Users\PodiumKurs\OneDrive\kodehode\ASP_BASIC\Basic2\obj\Debug\net8.0\Basic2.genruntimeconfig.cache
 C:\Users\PodiumKurs\OneDrive\kodehode\ASP_BASIC\Basic2\obj\Debug\net8.0\ref\Basic2.dll
+C:\Users\PodiumKurs\OneDrive\kodehode\ASP_BASIC\Basic2\bin\Debug\net8.0\Basic2.staticwebassets.runtime.json

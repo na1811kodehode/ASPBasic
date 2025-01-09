@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "IUN1kcSp9MqEXF6yhGQSIZmu5WwWpFImFkPq8RD1czM=",
+  "Hash": "Hqn7gn4iOCWCM8ZTXmBLHiQGdxvxuDDiTSjK31SKixY=",
   "Source": "Basic2",
   "BasePath": "_content/Basic2",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Basic2\\wwwroot",
+      "Source": "Basic2",
+      "ContentRoot": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\",
+      "BasePath": "_content/Basic2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\crud.js",
+      "SourceId": "Basic2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\",
+      "BasePath": "_content/Basic2",
+      "RelativePath": "crud.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\crud.js"
+    },
+    {
+      "Identity": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\index.html",
+      "SourceId": "Basic2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PodiumKurs\\OneDrive\\kodehode\\ASP_BASIC\\Basic2\\wwwroot\\",
+      "BasePath": "_content/Basic2",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
 }
